@@ -268,6 +268,7 @@ function s:SetPythonSettings()
 
     let g:ale_fixers = {
                 \ 'python': ['black'],
+                \ 'javascript': ['eslint'],
                 \}
     let g:syntastic_python_python_exec = 'python3'
     let g:deoplete#sources#jedi#enable_typeinfo = 0
