@@ -1,3 +1,5 @@
+" Original repository: https://github.com/PiotrProkop/dotfiles
+
 set nocompatible              " be iMproved, required
 set nobackup                  " Don't keep backup file
 set clipboard=unnamed        " Yank and paste with the system clipboard
@@ -48,8 +50,6 @@ endif
  Plug 'tmux-plugins/vim-tmux'
  Plug 'gcmt/taboo.vim'
  Plug 'guns/xterm-color-table.vim'
- Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
- Plug 'junegunn/fzf.vim'
  Plug 'machakann/vim-highlightedyank'
  if has('nvim')
      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -209,12 +209,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "sudo save
 cmap w!! w !sudo tee % >/dev/null
 
-"Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 "Tabs per language
 autocmd FileType python set ts=4 sw=4 et expandtab " Python
 autocmd FileType php set ts=4 sw=4 et expandtab     " Php
@@ -293,34 +287,6 @@ let stripTrailingWhitespace = 1
 "remove trailing whitespaces
 nnoremap <leader>e :call <SID>StripTrailingWhitespaces(1, 'n')<CR>
 vnoremap <silent> <Leader>e :<C-U>call <SID>StripTrailingWhitespaces(1, 'v')<CR>
-
-"remove all trailing whitespace for specified files before write
-autocmd BufWritePre * :call <SID>StripTrailingWhitespaces(0, 'n')
-
-" Remove trailing whitespace
-function <SID>StripTrailingWhitespaces(force, mode) range
-    if a:force != 1 && g:stripTrailingWhitespace == 0
-        return
-    endif
-
-    if a:force == 1 || &ft =~ 'python\|rst\|wiki\|javascript\|css\|html\|xml\|json'
-        " Preparation: save last search, and cursor position.
-        let _s=@/
-        let l = line(".")
-        let c = col(".")
-        " Do the business:
-        if a:mode == 'v'
-            '<,'>s/\s\+$//e
-        else
-            %s/\s\+$//e
-        endif
-        " Clean up: restore previous search history, and cursor position
-        let @/=_s
-        call cursor(l, c)
-    endif
-endfunction
-command -bang StripTrailingWhitespaces call <SID>StripTrailingWhitespaces(<bang>0, 'n')
-
 
 "UltiSnip
 let g:UltiSnipsExpandTrigger="<c-u>"
