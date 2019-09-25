@@ -15,42 +15,68 @@ if has('nvim')
 else
     call plug#begin('~/.vim/plugged')
 endif
+ " AsciiDoc support
  Plug 'habamax/vim-asciidoctor'
- Plug 'Rykka/riv.vim', { 'for': 'rst' }
+ " File explorer
  Plug 'scrooloose/nerdtree'
+ " Syntax hightlighting
  Plug 'scrooloose/syntastic'
+ " Fixer/linter support
  Plug 'dense-analysis/ale'
+ " Go support
  Plug 'fatih/vim-go'
+ " Source file symbols overview
  Plug 'gryf/tagbar', {'branch': 'show_tag_kind2'}
+ " Color theme
  Plug 'morhetz/gruvbox'
- Plug 'elixir-lang/vim-elixir'
+ " Optimization
  Plug 'Konfekt/FastFold'
+ " Git commands
  Plug 'tpope/vim-fugitive'
+ " Tab key support for completion options
  Plug 'ervandew/supertab'
- Plug 'christoomey/vim-tmux-navigator'
+ " Plug 'christoomey/vim-tmux-navigator'
+ " Rust auto complete
  Plug 'racer-rust/vim-racer'
+ " Rust language support
  Plug 'rust-lang/rust.vim'
+ " View Python documentation in vim
  Plug 'fs111/pydoc.vim', { 'for': 'python' }
+ " Python language support
  Plug 'mduan/python.vim', { 'for': 'python' }
+ " Autocompletion library
  Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+ " Syntax for Python
  Plug 'gryf/pep8-vim', { 'for': 'python' }
+ " Linter for python
  Plug 'gryf/pylint-vim', { 'for': 'python' }
+ " Python syntax support
  Plug 'gryf/python-syntax', { 'for': 'python' }
+ " Completion add-on for jedi
  Plug 'zchee/deoplete-jedi', { 'for': 'python' }
- Plug 'vim-scripts/indentpython', { 'for': 'python' }
+ " Snipets engine
  Plug 'SirVer/ultisnips'
+ " Snipets
  Plug 'honza/vim-snippets'
+ " Universal commenting command
  Plug 'tpope/vim-commentary'
+ " Smoothing scrolling
  Plug 'yuttie/comfortable-motion.vim'
+ " YAML support
  Plug 'stephpy/vim-yaml'
+ " JSON format support
  Plug 'elzr/vim-json'
+ " Additional surround features
  Plug 'tpope/vim-surround'
+ " Adding symetric comamands to the default ones
  Plug 'tpope/vim-unimpaired'
+ " Enchancing default repeat
  Plug 'tpope/vim-repeat'
- Plug 'tmux-plugins/vim-tmux'
- Plug 'gcmt/taboo.vim'
- Plug 'guns/xterm-color-table.vim'
+ " Plug 'tmux-plugins/vim-tmux'
+ " Highlight yanks
  Plug 'machakann/vim-highlightedyank'
+ " Make that pretty neat text tables
+ Plug 'godlygeek/tabular'
  if has('nvim')
      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  else
@@ -59,7 +85,6 @@ endif
      Plug 'roxma/vim-hug-neovim-rpc'
  endif
  Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make' }
- " Plug 'python/black'
 call plug#end()            " required
 
 filetype plugin indent on    " required
