@@ -77,6 +77,7 @@ endif
  Plug 'machakann/vim-highlightedyank'
  " Make that pretty neat text tables
  Plug 'godlygeek/tabular'
+ Plug 'junegunn/fzf.vim'
  if has('nvim')
      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
  else
