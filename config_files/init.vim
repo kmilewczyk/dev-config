@@ -383,3 +383,4 @@ hi User3 ctermbg=237
 
 nnoremap <C-p> :<C-u>FZF<CR>
 nnoremap <space>l :<C-u>Buffer<CR>
+nnoremap <silent> <C-l> :nohl<CR><C-l>
