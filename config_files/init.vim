@@ -164,17 +164,6 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 set updatetime=100
 
-"Go LSP
-
-" if executable('gopls')
-"     au User lsp_setup call lsp#register_server({
-"         \ 'name': 'gopls',
-"         \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-"         \ 'whitelist': ['go'],
-"         \ })
-" endif
-
-"set mouse=a
 set number
 set ts=4
 set sw=4
@@ -307,13 +296,6 @@ noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 "Json
 let g:vim_json_syntax_conceal = 0
-
-" Strip trailing whitespace option
-let stripTrailingWhitespace = 1
-
-"remove trailing whitespaces
-nnoremap <leader>e :call <SID>StripTrailingWhitespaces(1, 'n')<CR>
-vnoremap <silent> <Leader>e :<C-U>call <SID>StripTrailingWhitespaces(1, 'v')<CR>
 
 "UltiSnip
 let g:UltiSnipsExpandTrigger="<c-u>"
