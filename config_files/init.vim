@@ -77,6 +77,7 @@ endif
  Plug 'machakann/vim-highlightedyank'
  " Make that pretty neat text tables
  Plug 'godlygeek/tabular'
+ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
  Plug 'junegunn/fzf.vim'
  Plug 'mattn/emmet-vim'
  if has('nvim')
