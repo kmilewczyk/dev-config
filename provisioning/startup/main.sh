@@ -9,7 +9,7 @@ function replace_files {
   dst="${2/#\~/$HOME}"
 
   mkdir -p "$(dirname "$dst")"
-  cp "$src" "$dst"
+  cp -r "$src" "$dst"
 }
 
 
