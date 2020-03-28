@@ -1,26 +1,28 @@
 #!/bin/env bash
 
-FILE_BINDING_PROFILE=("config_files/profile" ~/.profile)
-FILE_BINDING_NVIM=("config_files/init.vim" ~/.config/nvim/init.vim)
-FILE_BINDING_TMUX=("config_files/tmux.conf" ~/.tmux.conf)
+
+replacement_file=${REPLACEMENT_FILE:-"./replacement_paths.txt"}
 
 # Takes src and dst files
 function replace_files {
   src="$1"
-  dst="$2"
+  dst="${2/#\~/$HOME}"
 
   mkdir -p "$(dirname "$dst")"
-  cp -i "$src" "$dst"
+  cp "$src" "$dst"
 }
+
 
 function main {
   pushd $(dirname $0)
 
-  replace_files "${FILE_BINDING_PROFILE[@]}"
-  replace_files "${FILE_BINDING_NVIM[@]}"
-  replace_files "${FILE_BINDING_TMUX[@]}"
+  while IFS= read -r line; do
+    linearr=($line)
+    echo "${linearr[0]}" "${linearr[1]}"
+    replace_files "${linearr[0]}" "${linearr[1]}" 1>/dev/null 2>/dev/null
+  done < "$replacement_file"
 
-  popd
+  popd >/dev/null
 }
 
 main "$@"

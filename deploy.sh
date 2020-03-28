@@ -52,6 +52,15 @@ function provision {
   fi
 }
 
+function dependencies {
+  pushd dependencies >/dev/null
+
+  bash check_installed_programs.sh
+  bash check_pip_requirements.sh
+
+  popd >/dev/null
+}
+
 
 function main {
   read_action "$@"
@@ -63,6 +72,9 @@ function main {
       ;;
     provision)
       provision "$@"
+      ;;
+    dependencies)
+      dependencies "$@"
       ;;
     *)
       echo "$USAGE" 1>&2

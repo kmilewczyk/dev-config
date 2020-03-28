@@ -2,3 +2,5 @@ rg
 ctags
 nvim
 tmux
+git
+python

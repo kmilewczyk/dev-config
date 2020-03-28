@@ -1,0 +1,4 @@
+config_files/profile ~/.profile
+config_files/init.vim ~/.config/nvim/init.vim
+config_files/tmux.conf ~/.tmux.conf
+config_files/bashrc ~/.bashrc
