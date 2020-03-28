@@ -14,7 +14,7 @@ function replace_files {
 
 
 function main {
-  pushd $(dirname $0)
+  pushd $(dirname $0) >/dev/null
 
   while IFS= read -r line; do
     linearr=($line)

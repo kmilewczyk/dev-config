@@ -1,0 +1,5 @@
+[Unit]
+Description="rclonesync" Python script for two-way sync between xdev endpoint and ~/Crossdevice/rcloned/ directory.
+
+[Service]
+ExecStart=rclonesync xdev:/rcloned/ ${HOME}/Crossdevice/rcloned/ --rclone-args -L
